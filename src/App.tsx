@@ -18,6 +18,7 @@ function App() {
           position.coords.latitude,
           position.coords.longitude
         ];
+        console.log("User Location", userCoords);
         setUserLocation(userCoords);
 
         // Sort locations by distance from user
