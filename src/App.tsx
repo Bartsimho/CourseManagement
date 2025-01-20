@@ -56,17 +56,25 @@ function App() {
       <div className="w-full max-w-4xl">
         {step === 'initial' && (
           <div className="flex flex-col items-center">
-            <h1 className="text-[#D9D9D9] text-3xl font-bold mb-8">Lincoln Golf Courses Explorer</h1>
+            <h1 className="text-[#D9D9D9] text-3xl font-bold mb-8">Course Selection</h1>
             <SelectionButton onClick={() => setStep('selection')} />
           </div>
         )}
         
         {step === 'selection' && (
-          <LocationList 
-            locations={sortedLocations}
-            userLocation={userLocation}
-            onSelect={handleLocationSelect}
-          />
+          <div className='space-y-4'>
+            <button
+            onClick={() => setStep('initial')}
+            className="text-[#D9D9D9] hover:underline flex items-center gap-2"
+            >
+              ← Back to selection
+            </button>
+            <LocationList 
+              locations={sortedLocations}
+              userLocation={userLocation}
+              onSelect={handleLocationSelect}
+            />
+          </div>
         )}
         
         {step === 'map' && selectedLocationData && (

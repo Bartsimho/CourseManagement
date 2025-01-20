@@ -4,16 +4,16 @@ export const locations: Location[] = [
   {
     id: 1,
     name: "Carholme Golf Course",
-    coordinates: [53.2397, -0.5674],
+    coordinates: [53.234158, -0.560261],
     description: "A beautiful parkland golf course in Lincoln",
-    image: "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&q=80&w=400"
+    image: "https://carholmegolfclub.co.uk/wp-content/uploads/2024/12/20240505_153300-scaled.jpg?auto=format&fit=crop&q=80&w=400"
   },
   {
     id: 2,
     name: "Lincoln Golf Club",
-    coordinates: [53.2703, -0.5934],
+    coordinates: [53.303818, -0.737191],
     description: "Historic 18-hole golf course established in 1891",
-    image: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?auto=format&fit=crop&q=80&w=400"
+    image: "https://www.lincolngc.co.uk/wp-content/uploads/2024/11/DJI_0701-1400x994.webp?auto=format&fit=crop&q=80&w=400"
   }
 ];
 
