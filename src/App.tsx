@@ -13,7 +13,7 @@ function App() {
 
   useEffect(() => {
     if ('geolocation' in navigator) {
-      navigator.geolocation.watchPosition((position) => {
+      const watchId = navigator.geolocation.watchPosition((position) => {
         const userCoords: [number, number] = [
           position.coords.latitude,
           position.coords.longitude
@@ -38,9 +38,22 @@ function App() {
           };
         });
 
-        const sorted = locationsWithDistance.sort((a, b) => a.distance - b.distance);
-        setSortedLocations(sorted);
-      });
+          const sorted = locationsWithDistance.sort((a, b) => a.distance - b.distance);
+          setSortedLocations(sorted);
+        },
+        (error) => {
+          console.error('Error watching position:', error);
+        },
+        {
+          enableHighAccuracy: true,
+          maximumAge: 0,
+        }
+      );
+  
+      // Cleanup the watcher when the component unmounts
+      return () => {
+        navigator.geolocation.clearWatch(watchId);
+      };
     }
   }, []);
 
@@ -67,7 +80,7 @@ function App() {
             onClick={() => setStep('initial')}
             className="text-[#D9D9D9] hover:underline flex items-center gap-2"
             >
-              ← Back to selection
+              ← Back to start
             </button>
             <LocationList 
               locations={sortedLocations}
