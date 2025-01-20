@@ -20,7 +20,7 @@ export const locations: Location[] = [
     name: "Sharpley Golf",
     coordinates: [54.844980, -1.404323],
     description: "Northeast England’s Leading Golf Course",
-    image: "https://www.sharpleygolf.co.uk/public/uploads/Sharpley.13.09.19.PM.MKIII.10.jpg?auto=format&fit=crop&q=80&w=400"
+    image: "https://www.sharpleygolf.co.uk/public/uploads/Sharpley.13.09.19.AM.MKIV.11.2.jpg?auto=format&fit=crop&q=80&w=400"
   }
 ];
 
