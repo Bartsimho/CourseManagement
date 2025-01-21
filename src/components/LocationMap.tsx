@@ -16,10 +16,10 @@ L.Icon.Default.mergeOptions({
 
 interface LocationMapProps {
   location: Location;
+  userLocation: [number, number] | null;
 }
 
-function MapEvents() {
-  const [userLocation, setUserLocation] = useState<[number, number] | null>(null);
+function MapEvents( {userLocation} : {userLocation: [number, number] | null} ) {
   const [clickedLocation, setClickedLocation] = useState<[number, number] | null>(null);
   const [distance, setDistance] = useState<number | null>(null);
 
@@ -39,14 +39,6 @@ function MapEvents() {
       }
     },
   });
-
-  useEffect(() => {
-    map.locate();
-    map.on('locationfound', (e) => {
-      setUserLocation([e.latlng.lat, e.latlng.lng]);
-      map.flyTo(e.latlng, map.getZoom());
-    });
-  }, [map]);
 
   const getMidpoint = (point1: [number, number], point2: [number, number]): [number, number] => {
     return [
@@ -104,7 +96,7 @@ function MapEvents() {
   );
 }
 
-export const LocationMap: React.FC<LocationMapProps> = ({ location }) => {
+export const LocationMap: React.FC<LocationMapProps> = ({ location, userLocation }) => {
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-4 text-[#D9D9D9] text-sm">
@@ -136,7 +128,7 @@ export const LocationMap: React.FC<LocationMapProps> = ({ location }) => {
               </div>
             </Popup>
           </Marker>
-          <MapEvents />
+          <MapEvents userLocation={userLocation} />
         </MapContainer>
       </div>
     </div>
