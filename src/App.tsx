@@ -5,6 +5,8 @@ import { LocationMap } from './components/LocationMap';
 import { locations, locationOptions } from './data';
 import { calculateDistance } from './utils/distance';
 
+let lastUpdateTime = Date.now();
+
 function App() {
   const [step, setStep] = useState<'initial' | 'selection' | 'map'>('initial');
   const [selectedLocation, setSelectedLocation] = useState<number | null>(null);
@@ -18,7 +20,10 @@ function App() {
           position.coords.latitude,
           position.coords.longitude
         ];
+        const now = Date.now();
         console.log("User Location", userCoords);
+        console.log(`Position updated after ${now - lastUpdateTime}ms`);
+        lastUpdateTime - now;
         setUserLocation(userCoords);
 
         // Sort locations by distance from user
