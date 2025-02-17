@@ -11,9 +11,9 @@ interface LocationListProps {
 
 export const LocationList: React.FC<LocationListProps> = ({ locations, userLocation, onSelect }) => {
   return (
-    <div className="w-full max-w-2xl space-y-4 flex items-center">
+    <div className="w-full max-w-2xl space-y-4">
       <h2 className="text-[#D9D9D9] text-xl font-semibold mb-4 gap-2">Select a Golf Course</h2>
-      <div className="space-y-4">
+      <div className="space-y-4 flex items-center">
         {locations.map((location) => (
           <button
             key={location.id}
