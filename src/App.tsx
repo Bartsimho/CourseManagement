@@ -75,20 +75,22 @@ function App() {
         )}
         
         {step === 'selection' && (
-          <div className="w-full max-w-2xl space-y-4 flex justify-center">
+          <div className="w-full max-w-2xl space-y-4">
             <button
             onClick={() => setStep('initial')}
             className="text-[#D9D9D9] hover:underline flex items-center gap-2"
             >
               ← Back to start
             </button>
-            <h2 className="text-[#D9D9D9] text-xl font-semibold mb-4">Select a Golf Course</h2>
-            <div className="overflow-auto flex justify-center max-h-[calc(3.5*theme(height.48))]">
-              <LocationList
-                locations={sortedLocations}
-                userLocation={userLocation}
-                onSelect={handleLocationSelect}
-              />
+            <div className="flex items-center">
+              <h2 className="text-[#D9D9D9] text-xl font-semibold mb-4">Select a Golf Course</h2>
+              <div className="overflow-auto flex justify-center max-h-[calc(3.5*theme(height.48))]">
+                <LocationList
+                  locations={sortedLocations}
+                  userLocation={userLocation}
+                  onSelect={handleLocationSelect}
+                />
+              </div>
             </div>
           </div>
         )}
