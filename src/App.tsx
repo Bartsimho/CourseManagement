@@ -75,7 +75,7 @@ function App() {
         )}
         
         {step === 'selection' && (
-          <div className='space-y-4 overflow-auto'>
+          <div className='space-y-4 overflow-auto max-h-[300px]'>
             <button
             onClick={() => setStep('initial')}
             className="text-[#D9D9D9] hover:underline flex items-center gap-2"

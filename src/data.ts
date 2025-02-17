@@ -27,14 +27,14 @@ export const locations: Location[] = [
     name: "Woodhall Spa - Hotchkin",
     coordinates: [53.155399, -0.204674],
     description: "Hotchkin Course - 58th Best Course on the Planet",
-    image: "https://www.woodhallspagolf.com/images/thumbs/slideshow/woodhallspa/1500x806/0-0-0-0/1/97_624.jpg?auto=format&fit=crop&q=80&w=400"
+    image: "https://cdn.sanity.io/images/arkm1m4f/production/5e294c7692421777ec2a2076103177083cfa9521-1600x1067.jpg?auto=format&fit=crop&q=80&w=400"
   },
   {
     id: 5,
     name: "Woodhall Spa -  Bracken",
     coordinates: [53.156085, -0.206711],
     description: "A contemporary classic and the perfect complement to The Hotchkin Course",
-    image: "https://www.woodhallspagolf.com/images/thumbs/slideshow/woodhallspa/1500x575/0-0-0-0/1/108_605.jpg?auto=format&fit=crop&q=80&w=400"
+    image: "https://images.contentstack.io/v3/assets/blt99dd26276e65134a/blt626e0b466e380ae2/5bf486e7dafd18fa6a7037bb/hotchkin-9th-green.jpg?auto=format&fit=crop&q=80&w=400"
   }
 ];
 
