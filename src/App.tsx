@@ -83,7 +83,7 @@ function App() {
               ← Back to start
             </button>
             <h2 className="text-[#D9D9D9] text-xl font-semibold mb-4 flex items-center">Select a Golf Course</h2>
-              <div className="overflow-auto flex justify-center items-center max-h-[calc(3.5*theme(height.48))]">
+              <div className="overflow-auto flex justify-center max-h-[calc(3.5*theme(height.48))]">
                 <LocationList
                   locations={sortedLocations}
                   userLocation={userLocation}
