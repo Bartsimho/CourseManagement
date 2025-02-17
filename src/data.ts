@@ -21,6 +21,20 @@ export const locations: Location[] = [
     coordinates: [54.844980, -1.404323],
     description: "Northeast England’s Leading Golf Course",
     image: "https://www.sharpleygolf.co.uk/public/uploads/Sharpley.13.09.19.AM.MKIV.11.2.jpg?auto=format&fit=crop&q=80&w=400"
+  },
+  {
+    id: 4,
+    name: "Woodhall Spa - Hotchkin",
+    coordinates: [53.155399, -0.204674],
+    description: "Hotchkin Course - 58th Best Course on the Planet",
+    image: "https://www.woodhallspagolf.com/images/thumbs/slideshow/woodhallspa/1500x806/0-0-0-0/1/97_624.jpg?auto=format&fit=crop&q=80&w=400"
+  },
+  {
+    id: 5,
+    name: "Woodhall Spa -  Bracken",
+    coordinates: [53.156085, -0.206711],
+    description: "A contemporary classic and the perfect complement to The Hotchkin Course",
+    image: "https://www.woodhallspagolf.com/images/thumbs/slideshow/woodhallspa/1500x575/0-0-0-0/1/108_605.jpg?auto=format&fit=crop&q=80&w=400"
   }
 ];
 
