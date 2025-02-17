@@ -75,18 +75,20 @@ function App() {
         )}
         
         {step === 'selection' && (
-          <div className='space-y-4 overflow-auto max-h-[300px]'>
+          <div className='space-y-4 flex flex-col items-center'>
             <button
             onClick={() => setStep('initial')}
             className="text-[#D9D9D9] hover:underline flex items-center gap-2"
             >
               ← Back to start
             </button>
-            <LocationList 
-              locations={sortedLocations}
-              userLocation={userLocation}
-              onSelect={handleLocationSelect}
-            />
+            <div className='overflow-auto max-h-[300px]'>
+              <LocationList 
+                locations={sortedLocations}
+                userLocation={userLocation}
+                onSelect={handleLocationSelect}
+              />
+            </div>
           </div>
         )}
         
