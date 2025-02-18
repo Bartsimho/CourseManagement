@@ -67,7 +67,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-[#4B4B4B] flex items-center justify-center p-6">
-      <div className="w-full max-w-4xl">
+      <div className="w-full">
         {step === 'initial' && (
           <div className="flex flex-col items-center">
             <h1 className="text-[#D9D9D9] text-3xl font-bold mb-8">Course Selection</h1>
@@ -111,14 +111,15 @@ function App() {
             <LocationMap location={selectedLocationData} userLocation={userLocation} />
           </div>
 
-          <div className="w-full max-w-4xl mt-4 flex flex-col md:flex-row md:justify-center">
+          <div className="bg-white shadow-lg p-4 rounded-lg w-full max-w-7xl mt-4 flex flex-col xl:justify-center">
             <h3 className="text-lg font-semibold text-gray-800">Next 6 Hours</h3>
-            <div className="w-full mb-4 flex flex-col gap-4 md:gap-x-8 md:justify-between">
+            <div className="w-full mb-4 flex flex-col gap-4 xl:gap-x-8 xl:justify-between">
               <WeatherInfo 
                 latitude={selectedLocationData.coordinates[0]} 
                 longitude={selectedLocationData.coordinates[1]} 
               />
             </div>
+            <h4 className="text-lg font-semibold text-gray-800">Data from Open-Meteo</h4>
           </div>
         </div>
         )}

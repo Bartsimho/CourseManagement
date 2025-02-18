@@ -73,7 +73,6 @@ const WeatherInfo: React.FC<WeatherInfoProps> = ({ latitude, longitude }) => {
                             </div>
                         </div>
                     ))}
-                <h4 className="text-lg font-semibold text-gray-800">Data from Open-Meteo</h4>
                 </div>
             )}
         </div>
