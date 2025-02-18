@@ -55,29 +55,30 @@ const WeatherInfo: React.FC<WeatherInfoProps> = ({ latitude, longitude }) => {
   
     return (
         <div className="bg-white shadow-lg p-4 rounded-lg">
-          <h3 className="text-lg font-semibold text-gray-800">Next 6 Hours</h3>
-          {loading && <p className="text-gray-500">Loading...</p>}
-          {error && <p className="text-red-500">{error}</p>}
-          {!loading && !error && (
-            <div className="mt-2 space-y-2">
-              {weatherData.map((hour, index) => (
-                <div key={index} className="p-2 border-b flex flex-col">
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">{hour.time}</span>
-                    <span className="text-gray-800 font-medium">{hour.temperature}°C</span>
-                  </div>
-                  <div className="text-sm text-gray-600 flex justify-between">
-                    <span>Wind Speed {hour.windSpeed} km/h</span>
-                    <span>Wind Heading {hour.windDirection}°</span>
-                    <span className="inline-block text-xl" style={{ transform: `rotate(${hour.windDirection}deg)` }}>⬆️</span>
-                    <span>🌧 {hour.precipitationProbability}%</span>
-                  </div>
+            <h3 className="text-lg font-semibold text-gray-800">Next 6 Hours</h3>
+            {loading && <p className="text-gray-500">Loading...</p>}
+            {error && <p className="text-red-500">{error}</p>}
+            {!loading && !error && (
+                <div className="mt-2 space-y-4 md:space-y-0 md:flex md:gap-x-8">
+                    {weatherData.map((hour, index) => (
+                        <div key={index} className="p-2 border-b flex flex-col md:flex-row md:items-center md:gap-4">
+                            <div className="flex justify-between md:flex-col md:items-start md:mr-4">
+                                <span className="text-gray-600">{hour.time}</span>
+                                <span className="text-gray-800 font-medium">{hour.temperature}°C</span>
+                            </div>
+                            <div className="text-sm text-gray-600 flex justify-between md:flex-col md:items-start">
+                                <span>Wind Speed {hour.windSpeed} km/h</span>
+                                <span>Wind Heading {hour.windDirection}°</span>
+                                <span className="inline-block text-xl" style={{ transform: `rotate(${hour.windDirection}deg)` }}>⬆️</span>
+                                <span>🌧 {hour.precipitationProbability}%</span>
+                            </div>
+                        </div>
+                    ))}
+                <h4 className="text-lg font-semibold text-gray-800">Data from Open-Meteo</h4>
                 </div>
-              ))}
-              <h4 className="text-lg font-semibold text-gray-800">Data from Open-Meteo</h4>
-            </div>
-          )}
+            )}
         </div>
+
     );
   };
   
