@@ -67,7 +67,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-[#4B4B4B] flex items-center justify-center p-6">
-      <div className="w-full">
+      <div className="w-full flex justify-center">
         {step === 'initial' && (
           <div className="flex flex-col items-center">
             <h1 className="text-[#D9D9D9] text-3xl font-bold mb-8">Course Selection</h1>
@@ -76,14 +76,14 @@ function App() {
         )}
         
         {step === 'selection' && (
-          <div className="space-y-4 overflow-hidden max-w-4xl flex justify-center">
+          <div className="space-y-4 overflow-hidden max-w-4xl">
             <button
             onClick={() => setStep('initial')}
-            className="text-[#D9D9D9] hover:underline flex items-center justify-left gap-2"
+            className="text-[#D9D9D9] hover:underline flex items-center gap-2"
             >
               ← Back to start
             </button>
-            <h2 className="text-[#D9D9D9] text-xl font-semibold mb-4 justify-left">Select a Golf Course</h2>
+            <h2 className="text-[#D9D9D9] text-xl font-semibold mb-4">Select a Golf Course</h2>
             <div className="overflow-auto max-h-[calc(3.5*theme(height.48))] p-8">
               <LocationList
                 locations={sortedLocations}
@@ -96,32 +96,32 @@ function App() {
         
         {step === 'map' && selectedLocationData && (
           <div className="min-h-screen bg-[#4B4B4B] flex flex-col items-center p-6 relative">
-          <div className="w-full max-w-4xl space-y-4">
-            <button
-              onClick={() => setStep('selection')}
-              className="text-[#D9D9D9] hover:underline flex items-center gap-2"
-            >
-              ← Back to selection
-            </button>
-        
-            <div className="bg-[#D9D9D9] p-4 rounded-lg mb-4">
-              <h2 className="text-[#4B4B4B] text-xl font-semibold">{selectedLocationData.name}</h2>
-              <p className="text-[#4B4B4B] opacity-75">{selectedLocationData.description}</p>
+            <div className="w-full max-w-4xl space-y-4">
+              <button
+                onClick={() => setStep('selection')}
+                className="text-[#D9D9D9] hover:underline flex items-center gap-2"
+              >
+                ← Back to selection
+              </button>
+          
+              <div className="bg-[#D9D9D9] p-4 rounded-lg mb-4">
+                <h2 className="text-[#4B4B4B] text-xl font-semibold">{selectedLocationData.name}</h2>
+                <p className="text-[#4B4B4B] opacity-75">{selectedLocationData.description}</p>
+              </div>
+              <LocationMap location={selectedLocationData} userLocation={userLocation} />
             </div>
-            <LocationMap location={selectedLocationData} userLocation={userLocation} />
-          </div>
 
-          <div className="bg-white shadow-lg p-4 rounded-lg w-full max-w-7xl mt-4 flex flex-col xl:justify-center">
-            <h3 className="text-lg font-semibold text-gray-800">Next 5 Hours</h3>
-            <div className="w-full mb-4 flex flex-col gap-4 xl:gap-x-8 xl:justify-between">
-              <WeatherInfo 
-                latitude={selectedLocationData.coordinates[0]} 
-                longitude={selectedLocationData.coordinates[1]} 
-              />
+            <div className="bg-white shadow-lg p-4 rounded-lg w-full max-w-7xl mt-4 flex flex-col xl:justify-center">
+              <h3 className="text-lg font-semibold text-gray-800">Next 5 Hours</h3>
+              <div className="w-full mb-4 flex flex-col gap-4 xl:gap-x-8 xl:justify-between">
+                <WeatherInfo 
+                  latitude={selectedLocationData.coordinates[0]} 
+                  longitude={selectedLocationData.coordinates[1]} 
+                />
+              </div>
+              <h4 className="text-lg font-semibold text-gray-800">Data from Open-Meteo</h4>
             </div>
-            <h4 className="text-lg font-semibold text-gray-800">Data from Open-Meteo</h4>
           </div>
-        </div>
         )}
       </div>
     </div>
