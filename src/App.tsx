@@ -4,6 +4,7 @@ import { LocationList } from './components/LocationList';
 import { LocationMap } from './components/LocationMap';
 import { locations, locationOptions } from './data';
 import { calculateDistance } from './utils/distance';
+import WeatherInfo from './components/WeatherInfo';
 
 function App() {
   const [step, setStep] = useState<'initial' | 'selection' | 'map'>('initial');
@@ -94,18 +95,28 @@ function App() {
         )}
         
         {step === 'map' && selectedLocationData && (
-          <div className="space-y-4">
-            <button
-              onClick={() => setStep('selection')}
-              className="text-[#D9D9D9] hover:underline flex items-center gap-2"
-            >
-              ← Back to selection
-            </button>
-            <div className="bg-[#D9D9D9] p-4 rounded-lg mb-4">
-              <h2 className="text-[#4B4B4B] text-xl font-semibold">{selectedLocationData.name}</h2>
-              <p className="text-[#4B4B4B] opacity-75">{selectedLocationData.description}</p>
+          <div className="relative flex flex-col lg:flex-row gap-4">
+            <div className="absolute top-4 right-4 w-64 lg:relative lg:w-1/3">
+              <WeatherInfo 
+                latitude={selectedLocationData.coordinates[0]} 
+                longitude={selectedLocationData.coordinates[1]} 
+              />
             </div>
-            <LocationMap location={selectedLocationData} userLocation={userLocation} />
+            <div className="space-y-4 flex-1">
+              <button
+                onClick={() => setStep('selection')}
+                className="text-[#D9D9D9] hover:underline flex items-center gap-2"
+              >
+                ← Back to selection
+              </button>
+        
+              <div className="bg-[#D9D9D9] p-4 rounded-lg mb-4">
+                <h2 className="text-[#4B4B4B] text-xl font-semibold">{selectedLocationData.name}</h2>
+                <p className="text-[#4B4B4B] opacity-75">{selectedLocationData.description}</p>
+              </div>
+        
+              <LocationMap location={selectedLocationData} userLocation={userLocation} />
+            </div>
           </div>
         )}
       </div>
