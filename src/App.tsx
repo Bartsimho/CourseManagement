@@ -75,7 +75,7 @@ function App() {
         )}
         
         {step === 'selection' && (
-          <div className="space-y-4">
+          <div className="space-y-4 max-h-screen">
             <button
             onClick={() => setStep('initial')}
             className="text-[#D9D9D9] hover:underline flex items-center gap-2"
@@ -83,7 +83,7 @@ function App() {
               ← Back to start
             </button>
             <h2 className="text-[#D9D9D9] text-xl font-semibold mb-4">Select a Golf Course</h2>
-              <div className="overflow-auto h-full max-h-[calc(3.5*theme(height.48))] p-8">
+              <div className="overflow-auto max-h-[calc(3.5*theme(height.48))] p-8">
                 <LocationList
                   locations={sortedLocations}
                   userLocation={userLocation}
