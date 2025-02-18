@@ -16,7 +16,6 @@ const WeatherInfo: React.FC<WeatherInfoProps> = ({ latitude, longitude }) => {
         setError(null);
   
         try {
-          const apiKey = 'YOUR_WEATHER_API_KEY'; // Replace with your actual API key
           const response = await fetch(
             `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m,wind_speed_10m,wind_direction_10m,precipitation_probability`
           );
@@ -34,7 +33,7 @@ const WeatherInfo: React.FC<WeatherInfoProps> = ({ latitude, longitude }) => {
   
           // Parse returned data
           const startIndex = index !== -1 ? index : 0;
-          const formattedData = data.hourly.time.slice(startIndex, startIndex + 4).map((time: string, i: number) => ({
+          const formattedData = data.hourly.time.slice(startIndex, startIndex + 6).map((time: string, i: number) => ({
             time: new Date(time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
             temperature: data.hourly.temperature_2m[startIndex + i],
             windSpeed: data.hourly.wind_speed_10m[startIndex + i],
