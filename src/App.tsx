@@ -95,14 +95,14 @@ function App() {
         )}
         
         {step === 'map' && selectedLocationData && (
-          <div className="relative flex flex-col lg:flex-row gap-4">
-            <div className="absolute top-4 right-4 w-64 lg:relative lg:w-1/3">
+          <div className="min-h-screen bg-[#4B4B4B] flex flex-col items-center p-6 relative">
+            <div className="w-full max-w-sm absolute top-4 right-4 lg:w-64 lg:relative lg:top-auto lg:right-auto">
               <WeatherInfo 
                 latitude={selectedLocationData.coordinates[0]} 
                 longitude={selectedLocationData.coordinates[1]} 
               />
             </div>
-            <div className="space-y-4 flex-1">
+            <div className="w-full max-w-4xl space-y-4">
               <button
                 onClick={() => setStep('selection')}
                 className="text-[#D9D9D9] hover:underline flex items-center gap-2"

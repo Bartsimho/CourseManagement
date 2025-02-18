@@ -24,14 +24,22 @@ const WeatherInfo: React.FC<WeatherInfoProps> = ({ latitude, longitude }) => {
           if (!response.ok) throw new Error('Failed to fetch weather data');
   
           const data = await response.json();
+
+          const now = new Date();
+          const currentHour = now.getHours(); // Gets current hour (0-23)
+          
+          const index = data.hourly.time.findIndex((time: string) => {
+            return new Date(time).getHours() === currentHour;
+        });
   
-          // Format data (assuming API returns an array of hourly temperatures)
-          const formattedData = data.hourly.time.slice(0, 6).map((time: string, index: number) => ({
+          // Parse returned data
+          const startIndex = index !== -1 ? index : 0;
+          const formattedData = data.hourly.time.slice(startIndex, startIndex + 5).map((time: string, i: number) => ({
             time: new Date(time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-            temperature: data.hourly.temperature_2m[index],
-            windSpeed: data.hourly.wind_speed_10m[index],
-            windDirection: data.hourly.wind_direction_10m[index],
-            precipitationProbability: data.hourly.precipitation_probability[index],
+            temperature: data.hourly.temperature_2m[startIndex + i],
+            windSpeed: data.hourly.wind_speed_10m[startIndex + i],
+            windDirection: data.hourly.wind_direction_10m[startIndex + i],
+            precipitationProbability: data.hourly.precipitation_probability[startIndex + i],
           }));
       
           setWeatherData(formattedData);
@@ -47,7 +55,7 @@ const WeatherInfo: React.FC<WeatherInfoProps> = ({ latitude, longitude }) => {
   
     return (
         <div className="bg-white shadow-lg p-4 rounded-lg">
-          <h3 className="text-lg font-semibold text-gray-800">Next 5 Hours</h3>
+          <h3 className="text-lg font-semibold text-gray-800">Next 6 Hours</h3>
           {loading && <p className="text-gray-500">Loading...</p>}
           {error && <p className="text-red-500">{error}</p>}
           {!loading && !error && (
@@ -66,6 +74,7 @@ const WeatherInfo: React.FC<WeatherInfoProps> = ({ latitude, longitude }) => {
                   </div>
                 </div>
               ))}
+              <h4 className="text-lg font-semibold text-gray-800">Data from Open-Meteo</h4>
             </div>
           )}
         </div>
