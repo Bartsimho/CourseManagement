@@ -76,14 +76,14 @@ function App() {
         )}
         
         {step === 'selection' && (
-          <div className="space-y-4 overflow-hidden">
+          <div className="space-y-4 overflow-hidden max-w-4xl flex justify-center">
             <button
             onClick={() => setStep('initial')}
-            className="text-[#D9D9D9] hover:underline flex items-center gap-2"
+            className="text-[#D9D9D9] hover:underline flex items-center justify-left gap-2"
             >
               ← Back to start
             </button>
-            <h2 className="text-[#D9D9D9] text-xl font-semibold mb-4">Select a Golf Course</h2>
+            <h2 className="text-[#D9D9D9] text-xl font-semibold mb-4 justify-left">Select a Golf Course</h2>
             <div className="overflow-auto max-h-[calc(3.5*theme(height.48))] p-8">
               <LocationList
                 locations={sortedLocations}
@@ -112,7 +112,7 @@ function App() {
           </div>
 
           <div className="bg-white shadow-lg p-4 rounded-lg w-full max-w-7xl mt-4 flex flex-col xl:justify-center">
-            <h3 className="text-lg font-semibold text-gray-800">Next 6 Hours</h3>
+            <h3 className="text-lg font-semibold text-gray-800">Next 5 Hours</h3>
             <div className="w-full mb-4 flex flex-col gap-4 xl:gap-x-8 xl:justify-between">
               <WeatherInfo 
                 latitude={selectedLocationData.coordinates[0]} 

@@ -34,7 +34,7 @@ const WeatherInfo: React.FC<WeatherInfoProps> = ({ latitude, longitude }) => {
   
           // Parse returned data
           const startIndex = index !== -1 ? index : 0;
-          const formattedData = data.hourly.time.slice(startIndex, startIndex + 5).map((time: string, i: number) => ({
+          const formattedData = data.hourly.time.slice(startIndex, startIndex + 4).map((time: string, i: number) => ({
             time: new Date(time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
             temperature: data.hourly.temperature_2m[startIndex + i],
             windSpeed: data.hourly.wind_speed_10m[startIndex + i],
@@ -54,18 +54,18 @@ const WeatherInfo: React.FC<WeatherInfoProps> = ({ latitude, longitude }) => {
     }, [latitude, longitude]);
   
     return (
-        <div className="bg-white shadow-lg p-4 rounded-lg">
+        <div className="bg-white p-4">
             {loading && <p className="text-gray-500">Loading...</p>}
             {error && <p className="text-red-500">{error}</p>}
             {!loading && !error && (
-                <div className="mt-2 space-y-4 md:space-y-0 md:flex md:gap-x-8 md:justify-between">
+                <div className="mt-2 space-y-4 lg:space-y-0 lg:flex lg:gap-x-8 lg:justify-between">
                     {weatherData.map((hour, index) => (
-                        <div key={index} className="p-2 border-b flex flex-col md:flex-row md:items-center md:gap-4">
-                            <div className="flex justify-between md:flex-col md:items-start md:mr-4">
+                        <div key={index} className="p-2 border-b flex flex-col lg:flex-row lg:items-center md:gap-4">
+                            <div className="flex justify-between lg:flex-col lg:items-start lg:mr-4">
                                 <span className="text-gray-600">{hour.time}</span>
                                 <span className="text-gray-800 font-medium">{hour.temperature}°C</span>
                             </div>
-                            <div className="text-sm text-gray-600 flex justify-between md:flex-col md:items-start">
+                            <div className="text-sm text-gray-600 flex justify-between lg:flex-col lg:items-start">
                                 <span>Wind Speed {hour.windSpeed} km/h</span>
                                 <span>Wind Heading {hour.windDirection}°</span>
                                 <span className="inline-block text-xl" style={{ transform: `rotate(${hour.windDirection}deg)` }}>⬆️</span>
