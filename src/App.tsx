@@ -96,7 +96,7 @@ function App() {
         
         {step === 'map' && selectedLocationData && (
           <div className="min-h-screen bg-[#4B4B4B] flex flex-col items-center p-6 relative">
-            <div className="w-full max-w-sm absolute top-4 right-4 lg:w-64 lg:relative lg:top-auto lg:right-auto">
+            <div className="lg:absolute lg:top-4 lg:right-4 w-full max-w-sm lg:w-64 relative">
               <WeatherInfo 
                 latitude={selectedLocationData.coordinates[0]} 
                 longitude={selectedLocationData.coordinates[1]} 
