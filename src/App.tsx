@@ -96,28 +96,30 @@ function App() {
         
         {step === 'map' && selectedLocationData && (
           <div className="min-h-screen bg-[#4B4B4B] flex flex-col items-center p-6 relative">
-            <div className="lg:absolute lg:top-4 lg:right-4 w-full max-w-sm lg:w-64 relative">
+          <div className="w-full max-w-4xl space-y-4">
+            <button
+              onClick={() => setStep('selection')}
+              className="text-[#D9D9D9] hover:underline flex items-center gap-2"
+            >
+              ← Back to selection
+            </button>
+        
+            <div className="bg-[#D9D9D9] p-4 rounded-lg mb-4">
+              <h2 className="text-[#4B4B4B] text-xl font-semibold">{selectedLocationData.name}</h2>
+              <p className="text-[#4B4B4B] opacity-75">{selectedLocationData.description}</p>
+            </div>
+            <LocationMap location={selectedLocationData} userLocation={userLocation} />
+          </div>
+
+          <div className="w-full max-w-4xl flex flex-col md:flex-row md:items-center md:justify-between mt-4">
+            <div className="md:w-48 w-full max-w-sm mb-4 md:mb-0">
               <WeatherInfo 
                 latitude={selectedLocationData.coordinates[0]} 
                 longitude={selectedLocationData.coordinates[1]} 
               />
             </div>
-            <div className="w-full max-w-4xl space-y-4">
-              <button
-                onClick={() => setStep('selection')}
-                className="text-[#D9D9D9] hover:underline flex items-center gap-2"
-              >
-                ← Back to selection
-              </button>
-        
-              <div className="bg-[#D9D9D9] p-4 rounded-lg mb-4">
-                <h2 className="text-[#4B4B4B] text-xl font-semibold">{selectedLocationData.name}</h2>
-                <p className="text-[#4B4B4B] opacity-75">{selectedLocationData.description}</p>
-              </div>
-        
-              <LocationMap location={selectedLocationData} userLocation={userLocation} />
-            </div>
           </div>
+        </div>
         )}
       </div>
     </div>
