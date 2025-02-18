@@ -111,8 +111,9 @@ function App() {
             <LocationMap location={selectedLocationData} userLocation={userLocation} />
           </div>
 
-          <div className="w-full max-w-4xl mt-4 flex flex-col md:flex-row md:items-center md:justify-between">
-            <div className="w-full max-w-sm mb-4 lg:mb-0 flex flex-col gap-4 md:flex-row md:gap-x-8">
+          <div className="w-full max-w-4xl mt-4 flex flex-col md:flex-row md:justify-center">
+            <h3 className="text-lg font-semibold text-gray-800">Next 6 Hours</h3>
+            <div className="w-full mb-4 flex flex-col gap-4 md:gap-x-8 md:justify-between">
               <WeatherInfo 
                 latitude={selectedLocationData.coordinates[0]} 
                 longitude={selectedLocationData.coordinates[1]} 
