@@ -67,7 +67,7 @@ const WeatherInfo: React.FC<WeatherInfoProps> = ({ latitude, longitude }) => {
                             <div className="text-sm text-gray-600 flex justify-between lg:flex-col lg:items-start">
                                 <span>Wind Speed {hour.windSpeed} km/h</span>
                                 <span>Wind Heading {hour.windDirection}°</span>
-                                <span className="inline-block text-xl" style={{ transform: `rotate(${hour.windDirection}deg)` }}>⬆️</span>
+                                <span className="inline-block text-xl" style={{ transform: `rotate(${hour.windDirection}deg)` }}>⬇️</span>
                                 <span>🌧 {hour.precipitationProbability}%</span>
                             </div>
                         </div>
