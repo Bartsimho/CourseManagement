@@ -38,7 +38,7 @@ export const locations: Location[] = [
   },
   {
     id: 6,
-    name: "Market Rasen",
+    name: "Market Rasen & District Golf Club",
     coordinates: [53.376843, -0.303712],
     description: "One of Lincolnshire's Finest",
     image: "https://www.marketrasengolfclub.co.uk/wp-content/uploads/2024/02/4th-fairway-2300x1300.jpg?auto=format&fit=crop&q=80&w=400"
