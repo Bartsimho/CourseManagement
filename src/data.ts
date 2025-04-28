@@ -35,6 +35,13 @@ export const locations: Location[] = [
     coordinates: [53.156085, -0.206711],
     description: "A contemporary classic and the perfect complement to The Hotchkin Course",
     image: "https://images.contentstack.io/v3/assets/blt99dd26276e65134a/blt626e0b466e380ae2/5bf486e7dafd18fa6a7037bb/hotchkin-9th-green.jpg?auto=format&fit=crop&q=80&w=400"
+  },
+  {
+    id: 6,
+    name: "Market Rasen",
+    coordinates: [53.376843, -0.303712],
+    description: "One of Lincolnshire's Finest",
+    image: "https://www.marketrasengolfclub.co.uk/wp-content/uploads/2024/02/4th-fairway-2300x1300.jpg?auto=format&fit=crop&q=80&w=400"
   }
 ];
 
